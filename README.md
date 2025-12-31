@@ -1,30 +1,26 @@
-# 📝 Django Blog Application
+# Django Blog Project
 
-A modern and fully functional blog application built using **Django**, featuring
-multi-user authentication, admin content management, and a premium dark-themed UI.
+A clean and scalable Django blog application built using best practices. This project demonstrates backend development, template rendering, authentication, and modular Django app structure.
 
----
+## Features
+- User authentication (login/logout)
+- Blog post listing and detail views
+- Django admin integration
+- Clean UI with templates and static files
 
-## 🚀 Features
-- Home page with modern UI
-- Blog page with dark mode design
-- Admin panel for managing posts
-- Multiple user authentication
-- Each post displays author and publish date
-- Clean, responsive, and professional layout
+## Tech Stack
+- Python
+- Django
+- HTML, CSS
+- SQLite (development)
+- Git & GitHub
 
----
-
-## 🛠️ Tech Stack
-- **Backend:** Django (Python)
-- **Frontend:** HTML, CSS
-- **Database:** SQLite
-- **Authentication:** Django Auth System
-
----
-
-## ▶️ How to Run the Project
-
-### 1️⃣ Activate virtual environment
+## Setup Instructions
 ```bash
-myenv\Scripts\activate
+git clone https://github.com/logesh2203/djproject.git
+cd djproject
+python -m venv venv
+venv\Scripts\activate
+pip install -r requirements.txt
+python manage.py migrate
+python manage.py runserver
