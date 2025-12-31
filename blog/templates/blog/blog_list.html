@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Logesh | Blog</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background: radial-gradient(circle at top, #1e293b, #020617);
+            color: #e5e7eb;
+        }
+
+        /* HERO */
+        .hero {
+            background: linear-gradient(135deg, #f97316, #fb923c);
+            padding: 90px 30px;
+            text-align: center;
+            color: #fff;
+        }
+
+        .hero h1 {
+            font-size: 3.4rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .hero p {
+            max-width: 720px;
+            margin: auto;
+            font-size: 1.1rem;
+            opacity: 0.95;
+        }
+
+        /* CONTAINER */
+        .container {
+            max-width: 1100px;
+            margin: auto;
+            padding: 70px 30px;
+        }
+
+        .back {
+            display: inline-block;
+            margin-bottom: 40px;
+            color: #cbd5f5;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .back:hover {
+            color: #fff;
+        }
+
+        /* BLOG CARD */
+        .post {
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(14px);
+            border-radius: 20px;
+            padding: 36px;
+            margin-bottom: 45px;
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.55);
+            border-left: 6px solid #f97316;
+            transition: all 0.4s ease;
+            animation: fadeUp 0.7s ease forwards;
+        }
+
+        .post:hover {
+            transform: translateY(-10px) scale(1.015);
+            box-shadow: 0 40px 100px rgba(0, 0, 0, 0.75);
+        }
+
+        .post h2 {
+            margin-top: 0;
+            color: #fb923c;
+            font-size: 1.9rem;
+            font-weight: 600;
+        }
+
+        .meta {
+            font-size: 0.9rem;
+            color: #94a3b8;
+            margin-bottom: 18px;
+        }
+
+        .meta span {
+            margin-right: 18px;
+        }
+
+        .post p {
+            font-size: 1.05rem;
+            line-height: 1.9;
+            color: #e5e7eb;
+        }
+
+        /* EMPTY STATE */
+        .empty {
+            text-align: center;
+            padding: 120px 20px;
+            color: #94a3b8;
+        }
+
+        .empty h2 {
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+            color: #fb923c;
+        }
+
+        /* FOOTER */
+        footer {
+            text-align: center;
+            padding: 35px;
+            font-size: 0.9rem;
+            color: #94a3b8;
+            background: #020617;
+        }
+
+        /* ANIMATION */
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.4rem;
+            }
+            .post {
+                padding: 26px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="hero">
+    <h1>Logesh’s Blog</h1>
+    <p>
+        Backend development, Django, problem solving,
+        and my journey as a Computer Science student.
+    </p>
+</div>
+
+<div class="container">
+    <a href="/" class="back">← Back to Home</a>
+
+    {% if posts %}
+        {% for post in posts %}
+            <div class="post">
+                <h2>{{ post.title }}</h2>
+
+                <div class="meta">
+                    <span>✍️ {{ post.author }}</span>
+                    <span>📅 {{ post.published_date }}</span>
+                </div>
+
+                <p>{{ post.text|truncatewords:55 }}</p>
+            </div>
+        {% endfor %}
+    {% else %}
+        <div class="empty">
+            <h2>No posts yet 🚀</h2>
+            <p>Dark mode stories coming soon.</p>
+        </div>
+    {% endif %}
+</div>
+
+<footer>
+    © 2025 Logesh • Dark Mode Edition 🌙
+</footer>
+
+</body>
+</html>
